@@ -1,0 +1,80 @@
+.TH "FCBROWSE" 1 "Version 1309"
+.SH NAME
+fcbrowse \- Browse and copy files from floppy disk
+.SH SYNOPSIS
+.B fcbrowse
+.RB [ \-d
+.IR drive ]
+.B -f
+.I format
+.SH DESCRIPTION
+.B fcbrowse
+uses an FC5025 floppy controller to let you list the files on a disk and
+copy files from it.
+.SH OPTIONS
+.TP
+.BI \-d \ drive
+Read from the drive attached to the controller with the specified device ID. The
+.B fcdrives
+command lists the available controllers. If the
+.B \-d
+option to
+.B fcbrowse
+is omitted,
+.B fcbrowse
+will default to using the first FC5025 controller it finds.
+.TP
+.BI \-f \ format
+Specifies the type of disk to read from. Specifying the format is mandatory.
+.B fcbrowse
+supports some, but not all, of the formats listed by the
+.B fcformats
+command. If
+.B fcbrowse
+does not support a given format then you can't browse through the filesystem
+contents with
+.B fcbrowse
+but you can use
+.B fcimage
+to make an image copy of the entire disk.
+.SH COMMANDS
+Once
+.B fcbrowse
+is running, it displays an
+.I fcbrowse>
+prompt and responds to the following commands:
+.TP
+.RI cd \ directory
+Change the working directory on the floppy disk to 
+.IR directory .
+.TP
+dir
+List the files in the working directory on the floppy disk. (Synonym for ls)
+.TP
+exit
+Terminate 
+.BR fcbrowse .
+.TP
+.RI get \ file
+Copy
+.I file
+from the floppy disk.
+.TP
+lcd
+Change the working directory on the host to
+.IR directory .
+.TP
+ls
+List the files in the working directory on the floppy disk.
+.TP
+pwd
+Print the current working directory on the floppy disk.
+.TP
+quit
+Terminate 
+.BR fcbrowse .
+(Synonym for exit)
+.SH "SEE ALSO"
+.BR fcdrives (1),
+.BR fcformats (1),
+.BR fcimage (1)

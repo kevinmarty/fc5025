@@ -1,0 +1,10 @@
+The following should be untarred into the dib directory:
+gtk-2.6.10-rev-a-installer.tar.gz
+gtk-dev-2.6.10-rev-a.tar.gz
+libusb-win32-device-bin-0.1.12.2.tar.gz
+libusb-win32-bin-1.2.5.0.zip
+wdi-simple-1.2.2-bin.tar.gz
+
+Also, Inno Setup 5.3.6 should be installed to Wine's "drive C".
+
+The code is known to compile with mingw32 3.4.5.20060117.1.dfsg-2.

@@ -1,0 +1,24 @@
+.TH "FCFORMATS" 1 "Version 1309"
+.SH NAME
+fcformats \- List supported floppy disk formats
+.SH SYNOPSIS
+.B fcformats
+.SH DESCRIPTION
+.B fcformats
+lists the types of disks that 
+.B fcbrowse
+and
+.B fcimage
+support. On each line it prints the short name of a format, a tab character,
+and a description of the format. To read a disk of a certain type, specify
+the short name as the
+.B -f
+option to the
+.B fcbrowse
+or
+.B fcimage
+command.
+.SH "SEE ALSO"
+.BR fcbrowse (1),
+.BR fcdrives (1),
+.BR fcimage (1)

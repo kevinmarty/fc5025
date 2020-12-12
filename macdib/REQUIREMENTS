@@ -1,0 +1,20 @@
+The code is known to compile under PPC Mac OS X 10.4.11 with Xcode 2.5.
+Compiling in any other environment is unlikely to work without modifying
+the Makefile.
+
+You will need GTK library binaries.
+Extract gtk-ppc-bin-2011-10-25.tar.bz2 into /Users/gtk-ppc and
+gtk-x86-bin-2011-11-04.tar.bz2 into /Users/gtk-x86
+These *.bz2 files are found in the
+/Source_Code/Library_Binaries_and_Source/MacOSX/ directory of the driver CD-ROM.
+
+You will also need Mattias Ellert's libusb 0.1.13 beta 2009-09-10. Do not
+try to use libusb 0.1.12, version 0.1.12 is not compatible with Cocoa and
+will make MacDIB break in bizarre ways.
+Extract libusb.pkg.tar.gz from the driver CD-ROM and place libusb.pkg
+in the dib directory, then cd to libusb.pkg/Contents and run
+"gzip -dc Archive.pax.gz | pax -r".
+
+ige-mac-bundler 0.5 should be installed in ~/bin and ~/bin should be in
+your $PATH.
+

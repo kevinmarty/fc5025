@@ -1,0 +1,2 @@
+GTK_VERSION=gtk2
+include Makefile

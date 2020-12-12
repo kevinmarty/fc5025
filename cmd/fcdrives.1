@@ -1,0 +1,21 @@
+.TH "FCDRIVES" 1 "Version 1309"
+.SH NAME
+fcdrives \- List connected FC5025 controllers
+.SH SYNOPSIS
+.B fcdrives
+.SH DESCRIPTION
+.B fcdrives
+lists the connected FC5025 floppy controllers. On each line it prints a
+device ID, a tab character, and a description of the controller. To
+access a disk attached to a specific controller, specify the device ID as
+the
+.B -d
+option to the
+.B fcbrowse
+or
+.B fcimage
+command.
+.SH "SEE ALSO"
+.BR fcbrowse (1),
+.BR fcformats (1),
+.BR fcimage (1)

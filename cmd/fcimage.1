@@ -1,0 +1,43 @@
+.TH "FCIMAGE" 1 "Version 1309"
+.SH NAME
+fcimage \- Capture disk image of floppy
+.SH SYNOPSIS
+.B fcimage
+.RB [ \-d
+.IR drive ]
+.B -f
+.I format
+.I outfile
+.SH DESCRIPTION
+.B fcimage
+uses an FC5025 floppy controller to make a sector-by-sector dump, also
+known as an image, of a disk. The contents of the currently inserted disk
+will be written to
+.IR outfile .
+If
+.I outfile
+is
+.BR - ,
+the disk image will be written to the standard output.
+.SH OPTIONS
+.TP
+.BI \-d \ drive
+Read from the drive attached to the controller with the specified device ID. The
+.B fcdrives
+command lists the available controllers. If the
+.B \-d
+option to
+.B fcimage
+is omitted,
+.B fcimage
+will default to using the first FC5025 controller it finds.
+.TP
+.BI \-f \ format
+Specifies the type of disk to read from. Specifying the format is mandatory.
+The
+.B fcformats
+command lists the supported formats.
+.SH "SEE ALSO"
+.BR fcbrowse (1),
+.BR fcdrives (1),
+.BR fcformats (1)

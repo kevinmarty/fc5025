@@ -1,0 +1,17 @@
+<?xml version="1.0"?> <!--*- mode: xml -*-->
+<app-bundle>
+  <meta>
+    <prefix>${env:GTKHOME}/gtk/inst</prefix>
+    <prefix name="project">${project}</prefix>
+    <prefix name="libusb">${project}/../libusb.pkg/Contents/usr/local</prefix>
+  </meta>
+
+  <plist>${project}/Info.plist</plist>
+
+  <!-- The executable for the application -->
+  <main-binary>${prefix:project}/../xdib/OBJ.macosx-${env:TARGET_ARCH}/xdib</main-binary>
+
+  <!-- Modules for GTK+ (image loaders, etc) -->
+  <binary>${prefix}/lib/gtk-2.0</binary>
+  <binary>${prefix:libusb}/lib/libusb-0.1.4.dylib</binary>
+</app-bundle>
