@@ -1,7 +1,7 @@
-WIN32_CC=i586-mingw32msvc-cc
+WIN32_CC=i686-w64-mingw32-gcc
 WIN32_CFLAGS=-mms-bitfields -mwindows -I../libusb-win32-device-bin-0.1.12.2/include -DWIN32
-WIN32_AR=i586-mingw32msvc-ar
-WIN32_RANLIB=i586-mingw32msvc-ranlib
+WIN32_AR=i686-w64-mingw32-gcc-ar
+WIN32_RANLIB=i686-w64-mingw32-gcc-ranlib
 
 MACOSX_PPC_CC=/usr/local/powerpc-apple-darwin9/bin/powerpc-apple-darwin9-gcc
 MACOSX_PPC_AR=/usr/local/powerpc-apple-darwin9/bin/powerpc-apple-darwin9-ar

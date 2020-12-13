@@ -5,7 +5,7 @@ HOST_OBJS=fcformats fcdrives fcimage fcbrowse
 CFLAGS=-I../backend
 BACKEND_A=../backend/OBJ.linux/backend.a
 
-WIN32_CC=i586-mingw32msvc-cc
+WIN32_CC=i686-w64-mingw32-gcc
 WIN32_CFLAGS=-mms-bitfields -I../backend
 WIN32_USBDIR=../libusb-win32-device-bin-0.1.12.2
 WIN32_BACKEND_A=../backend/OBJ.win32/backend.a

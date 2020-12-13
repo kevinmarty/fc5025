@@ -8,7 +8,7 @@ GTK2LIBS=`pkg-config gtk+-2.0 --libs`
 INCLUDES=-I../backend
 BACKEND_A=../backend/OBJ.linux/backend.a
 
-WIN32_CC=i586-mingw32msvc-cc
+WIN32_CC=i686-w64-mingw32-gcc
 WIN32_CFLAGS=-mms-bitfields
 WIN32_USBDIR=../libusb-win32-device-bin-0.1.12.2
 WIN32_GTKDIR=../gtk_2_0
