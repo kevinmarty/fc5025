@@ -15,7 +15,7 @@ MACOSX_CFLAGS=-I../libusb.pkg/Contents/usr/local/include
 XCODE_DIR=/Developer
 MAC_NATIVE_CC=$(XCODE_DIR)/usr/bin/gcc-4.0 -isysroot $(XCODE_DIR)/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.4
 
-OBJECTS=formats.o drives.o endec_4and4.o endec_54gcr.o endec_5and3.o endec_6and2.o endec_fm.o endec_mfm.o crc.o phys_apple13.o phys_apple16.o phys_atari810.o phys_c1541.o phys_coco.o phys_kaypro2.o phys_kaypro4.o phys_mds.o phys_msdos.o phys_pmc.o phys_ti99.o phys_versa.o phys_vg4500.o phys_gen.o fc5025.o log_cpm22.o log_fat12.o log_prodos.o log_rsdos.o log_versa.o
+OBJECTS=formats.o drives.o endec_4and4.o endec_54gcr.o endec_5and3.o endec_6and2.o endec_fm.o endec_mfm.o crc.o phys_apple13.o phys_apple16.o phys_atari810.o phys_c1541.o phys_c1571.o phys_coco.o phys_kaypro2.o phys_kaypro4.o phys_mds.o phys_msdos.o phys_pmc.o phys_ti99.o phys_versa.o phys_vg4500.o phys_gen.o fc5025.o log_cpm22.o log_fat12.o log_prodos.o log_rsdos.o log_versa.o
 OBJDIRS=OBJ.linux OBJ.macosx-ppc OBJ.macosx-x86 OBJ.win32
 DUMMY:=$(shell mkdir -p $(OBJDIRS))
 

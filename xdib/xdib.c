@@ -688,20 +688,40 @@ void imgpressed(GtkWidget *widget, gpointer gdata) {
 
 	progress_per_halftrack=(float)1/(float)(phys->num_tracks(phys)*phys->num_sides(phys)*2);
 
-	for(track=phys->min_track(phys);track<=phys->max_track(phys);track++) {
-		for(side=phys->min_side(phys);side<=phys->max_side(phys);side++) {
-			if(phys->num_sides(phys)==1) {
-				snprintf(status_text,sizeof(status_text),"Reading track %d...\n",track);
-			} else {
-				snprintf(status_text,sizeof(status_text),"Reading track %d side %d...\n",track,side);
+	if (selected_format->sides_interleaved) {
+		for(track=phys->min_track(phys);track<=phys->max_track(phys);track++) {
+			for(side=phys->min_side(phys);side<=phys->max_side(phys);side++) {
+				if(phys->num_sides(phys)==1) {
+					snprintf(status_text,sizeof(status_text),"Reading track %d...\n",track);
+				} else {
+					snprintf(status_text,sizeof(status_text),"Reading track %d side %d...\n",track,side);
+				}
+				gtk_label_set(GTK_LABEL(status_label),status_text);
+				refresh_screen();
+				/* image the track */
+				if(image_track(f,phys,track,side,status_label,error_label,progressbar,progress_per_halftrack)!=0) {
+					fclose(f);
+					close_drive();
+					return imgfailed(image_window,delete_signal,status_label,button_label,button,cancelbutton,NULL);
+				}
 			}
-			gtk_label_set(GTK_LABEL(status_label),status_text);
-			refresh_screen();
-			/* image the track */
-			if(image_track(f,phys,track,side,status_label,error_label,progressbar,progress_per_halftrack)!=0) {
-				fclose(f);
-				close_drive();
-				return imgfailed(image_window,delete_signal,status_label,button_label,button,cancelbutton,NULL);
+		}
+	} else {
+		for(side=phys->min_side(phys);side<=phys->max_side(phys);side++) {
+			for(track=phys->min_track(phys);track<=phys->max_track(phys);track++) {
+				if(phys->num_sides(phys)==1) {
+					snprintf(status_text,sizeof(status_text),"Reading track %d...\n",track);
+				} else {
+					snprintf(status_text,sizeof(status_text),"Reading track %d side %d...\n",track,side);
+				}
+				gtk_label_set(GTK_LABEL(status_label),status_text);
+				refresh_screen();
+				/* image the track */
+				if(image_track(f,phys,track,side,status_label,error_label,progressbar,progress_per_halftrack)!=0) {
+					fclose(f);
+					close_drive();
+					return imgfailed(image_window,delete_signal,status_label,button_label,button,cancelbutton,NULL);
+				}
 			}
 		}
 	}

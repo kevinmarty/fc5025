@@ -4,6 +4,7 @@ struct format_info {
 	char *suffix;
 	struct phys *phys;
 	struct log *log;
+	int sides_interleaved;
 };
 
 struct format_info *get_format_list(void);

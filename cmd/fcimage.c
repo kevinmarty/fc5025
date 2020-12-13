@@ -184,13 +184,26 @@ int main(int argc, char *argv[]) {
 		close_drive();
 		return 1;
 	}
-	for(track=phys->min_track(phys);track<=phys->max_track(phys);track++) {
+	if (format->sides_interleaved) {
+		for(track=phys->min_track(phys);track<=phys->max_track(phys);track++) {
+			for(side=phys->min_side(phys);side<=phys->max_side(phys);side++) {
+				if(image_track(f,phys,track,side)!=0) {
+					if(must_close_output)
+						fclose(f);
+					close_drive();
+					return 1;
+				}
+			}
+		}
+	} else {
 		for(side=phys->min_side(phys);side<=phys->max_side(phys);side++) {
-			if(image_track(f,phys,track,side)!=0) {
-				if(must_close_output)
-					fclose(f);
-				close_drive();
-				return 1;
+			for(track=phys->min_track(phys);track<=phys->max_track(phys);track++) {
+				if(image_track(f,phys,track,side)!=0) {
+					if(must_close_output)
+						fclose(f);
+					close_drive();
+					return 1;
+				}
 			}
 		}
 	}
